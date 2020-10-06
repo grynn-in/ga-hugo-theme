@@ -1,0 +1,8 @@
+{{ define "main" }}
+
+<main id="single" product-id="{{ .Params.name | safeHTML }}">
+<!--main product section start  -->
+{{- partial "product-main.html" . -}}
+
+</main>
+{{ end }}

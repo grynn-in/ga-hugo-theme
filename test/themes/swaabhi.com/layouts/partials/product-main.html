@@ -1,0 +1,334 @@
+    <!-- BREADCRUMB -->
+    <nav class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+  
+              <!-- Breadcrumb -->
+              <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+                <li class="breadcrumb-item">
+                  <a class="text-gray-400" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a class="text-gray-400" href="/products">Products</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="text-gray-400" href="/category/{{.Params.category | urlize}}">
+                    {{ .Params.category }}</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a class="text-gray-400" href="/category/sub-category/{{.Params.sub_category | urlize}}">
+                        {{ .Params.sub_category }}
+                    </a>
+    
+
+                </li>
+
+              </ol>
+
+  
+            </div>
+          </div>
+        </div>
+      </nav>
+<!-- PRODUCT -->
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <!-- Image divs start -->
+            <div class="col-12 col-md-6">
+
+              {{ range $image_obj, $image_key := .Params.product_images }}
+              {{ if ne (delimit $image_key "") ""}}
+              <a class="d-block mb-4"
+                href="https://competent-shaw-f16dc4.netlify.app/images/_img/{{ delimit $image_key "" }}?nf_resize=smartcrop&w=538&h=491"
+                data-fancybox>
+                <img class="img-fluid"
+                  src="https://competent-shaw-f16dc4.netlify.app/images/_img/{{ delimit $image_key "" }}?nf_resize=smartcrop&w=538&h=491"
+                  alt="...">
+              </a>
+              {{end}}
+              {{ end}}
+                          
+            </div>
+  
+            <!-- Image divs end  -->
+
+
+            <div class="col-12 col-md-6 pl-lg-10">
+              <div class="position-sticky" style="top: 62px;">
+ 
+                <!-- Heading -->
+                <h3 class="mb-2">{{ .Params.name }}</h3>
+                <!-- Price -->
+                <div class="mb-7">
+                  <span class="ml-1 font-size-h5 font-weight-bolder">&#8377;{{.Params.price}}</span>
+                  <span class="font-size-sm ml-1">(In Stock)</span>
+                </div>
+
+                <!-- Product Header + Ratings start  -->
+                <div class="row mb-1">
+                    <div class="col">
+                        <!-- Preheading -->
+                        <!-- h3 class="mb-2">{{ .Params.category }}</h3><br-->
+                        Classified as 
+                        <a href="/category/{{.Params.category | urlize}}" class="badge btn-swaabhi" background-color: #red
+                            !important;>{{ .Params.category }}</a>
+                        <a href="/category/sub-category/{{.Params.sub_category | urlize}}" class="badge btn-swaabhi" background-color: #red
+                            !important;>{{ .Params.sub_category }}</a>
+                    </div>
+                </div>
+                
+                <!-- Product Header + Ratings end   -->
+                  
+                
+                <!-- Form -->
+                <form class="mb-9">
+                  <div class="form-group">
+  
+                    <!-- Short Description start -->
+                    <!-- Text -->
+                    <p>
+                    {{.Params.shortdescription |  safeHTML}}
+                    </p>
+  
+                    <!-- COLORS -->
+                    {{ if or (eq .Params.category "Earrings") (eq .Params.category "Necklace") (eq .Params.category "earrings") (eq .Params.category "necklace") }}
+                        <!-- Label -->
+                        <p class="mb-5">
+                          Goes with following colors : <strong id="colorCaption">
+                          {{ range $taxonomy_term, $taxonomy := .Params.color }}
+                            <a href="/colors/{{ . | urlize}}" class="badge btn-swaabhi" background-color: #red !important; data-toggle="tooltip" data-placement="top" title="Browse more products in {{ $taxonomy }} ">{{ $taxonomy }}</a>
+                          {{end}}
+                          </strong>
+                        </p>
+  
+                        <p class="mb-5">
+                          Select color : 
+                          {{ range $taxonomy_term, $taxonomy := .Params.color }}
+                              <div class="form-check">
+                                <input class="form-check-input color" type="radio" name="form-color" id="{{ $taxonomy }}" value="{{ $taxonomy }}" {{ if (eq $taxonomy_term 0) }}checked{{ end }} >
+                                <label class="form-check-label" for="{{ $taxonomy }}">
+                                  {{ $taxonomy }}
+                                </label>
+                              </div>
+                          {{end}}
+                        </p>
+  
+                      
+                    {{end}}
+                    <!-- COLORS END -->
+  
+  
+                  
+                    <!-- SIZES LENGTH -->
+                    {{ if or (eq .Params.category "Bangles") (eq .Params.category "bangles")  }}
+                      
+  
+                        <!-- Label -->
+                        <p class="mb-5">
+                          Goes with following size : <strong id="colorCaption">
+                          {{ range $taxonomy_term, $taxonomy := .Params.lengths }}
+                            <a href="/lenghts/{{ . | urlize}}" class="badge btn-swaabhi" background-color: #red !important; data-toggle="tooltip" data-placement="top" title="Browse more products in {{ $taxonomy }} ">{{ $taxonomy }}</a>
+                          {{end}}
+  
+                          </strong>
+                        </p>
+  
+                        <p class="mb-5">
+                          Select size : 
+                          {{ range $taxonomy_term, $taxonomy := .Params.lengths }}
+                              <div class="form-check">
+                                <input class="form-check-input lengths" type="radio" name="form-lengths" id="{{ $taxonomy }}" value="{{ $taxonomy }}" {{ if (eq $taxonomy_term 0) }}checked{{ end }} >
+                                <label class="form-check-label" for="{{ $taxonomy }}">
+                                  {{ $taxonomy }}
+                                </label>
+                              </div>
+                          {{end}}
+                        </p>
+                    
+                     
+                    {{end}}
+                    <!-- SIZES LENGTH END -->
+  
+  
+  
+                    <!-- occassions  -->
+                    <p class="mb-5">
+                      Wear it for : <strong id="colorCaption">
+                        {{ range $taxonomy_term, $taxonomy := .Params.occasions }}
+                        <a href="/occasions/{{ . | urlize}}" class="badge btn-swaabhi" background-color: #red !important; data-toggle="tooltip" data-placement="top" title="Browse more products in {{ $taxonomy }} ">{{ $taxonomy }}</a>
+                        {{end}}
+                    
+                      </strong>
+                    </p>
+                    <!-- occassions  -->
+                    <p class="mb-5">
+                      Has the polish : 
+                      <strong id="colorCaption">
+                        {{ range $taxonomy_term, $taxonomy := .Params.polishes }}
+                        <a href="/polishes/{{ . | urlize}}" class="badge btn-swaabhi" background-color: #red !important; data-toggle="tooltip" data-placement="top" title="Browse more products in {{ $taxonomy }} ">{{ $taxonomy }}</a>
+                        {{end}}
+                    
+                      </strong>
+                    </p>
+  
+                    <!--p class="mb-5">
+                      Fits : 
+                      <strong id="colorCaption">
+                        {{ range $taxonomy_term, $taxonomy := .Params.sizes }}
+                        <a href="/sizes/{{ . | urlize}}" class="badge btn-swaabhi" background-color: #gray !important; data-toggle="tooltip" data-placement="top" title="Browse more products in {{ $taxonomy }} ">{{ $taxonomy }}</a>
+                        {{end}}
+                    
+                      </strong>
+                    </p-->
+  
+                    <!-- List -->
+                    <ul class="list-unstyled mb-0">
+                      <li>
+                        <strong class="text-body">SKU:</strong class="text-body"> {{ .Params.sku}}
+                      </li>
+                      <li>
+                        <strong class="text-body">Length:</strong> {{ .Params.lengths}}
+                      </li>
+                      <li>
+                        <strong class="text-body">Collections:</strong> {{ .Params.collections}}
+                      </li>
+  
+  
+                    </ul>
+                    <!-- Radio -->
+                    <!-- div class="mb-8 ml-n1">
+                      <div class="custom-control custom-control-inline custom-control-img">
+                        <input type="radio" class="custom-control-input" id="imgRadioOne" name="imgRadio"
+                          data-toggle="form-caption" data-target="#colorCaption" value="Pink" checked>
+                        <label class="custom-control-label" for="imgRadioOne">
+                          <span class="embed-responsive embed-responsive-1by1 bg-cover"
+                            style="background-image: url(/assets/img/products/product-157.jpg);"></span>
+                        </label>
+                      </div>
+                    </div-->
+  
+                  </div>
+  
+                  <div class="form-group">
+                    <div class="form-row mb-7">
+                      <div class="col-12 col-lg-auto">
+                        <!-- Wishlist -->
+                        <!-- button class="btn btn-outline-dark btn-block mb-2 btn-swaabhi" data-toggle="button">
+                          Wishlist <i class="fe fe-heart ml-2"></i>
+                        </button -->
+                        <button id="{{.Params.url_key}}" onclick="modalInformation(this)" data-name="{{.Params.name}}" data-price="{{.Params.price}}" data-url="{{.Permalink}}" 
+                        data-id="{{.Params.url_key}}" data-img="https://shop.swaabhi.com/images/fabian-gieske-cbIKeuURaq8-unsplash.jpg?nf_resize=smartcrop&w=80&h=80" 
+                        class="add-to-cart btn btn-dark btn-lg mb-1" type="submit"> <i class="fa fa-shopping-cart mr-2"></i>Add to Cart</button>
+  
+  
+                      </div>
+                    </div>
+                  </div> 
+                </form>
+  
+                <!-- Description -->
+                <div class="list-group list-group-sm list-group-flush-x" id="productCollapseParent">
+                  <div class="list-group-item">
+  
+                    <!-- Toggle -->
+                    <a class="d-block dropdown-toggle text-body" data-toggle="collapse" href="#productCollapseDetails">
+                      <strong>Product Details</strong>
+                    </a>
+  
+                    <!-- Collapse -->
+                    <div class="collapse" id="productCollapseDetails" data-parent="#productCollapseParent">
+                      <div class="pt-5 font-size-sm text-gray-500">
+  
+                        <!-- Text -->
+                        <p>
+                          {{ .Params.description |  safeHTML }}
+                        </p>
+  
+                        <!-- List -->
+                        <ul class="list-unstyled mb-0">
+                          <li>
+                            <strong class="text-body">SKU:</strong class="text-body"> {{ .Params.sku}}
+                          </li>
+                          <li>
+                            <strong class="text-body">Colors:</strong> {{ .Params.color}}
+                          </li>
+                          <li>
+                            <strong class="text-body">Occasion:</strong> {{ .Params.occasions}}
+                          </li>
+                          <li>
+                            <strong class="text-body">Polish:</strong> {{ .Params.polish}}
+                          </li>
+                          <li>
+                            <strong class="text-body">Length:</strong> {{ .Params.length}}
+                          </li>
+                          <li>
+                            <strong class="text-body">Collections:</strong> {{ .Params.collections}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="list-group-item">
+  
+                    <!-- Toggle -->
+                    <a class="d-block dropdown-toggle text-body" data-toggle="collapse" href="#productCollapseShipping">
+                      <strong>Shipping & Returns</strong>
+                    </a>
+  
+                    <!-- Collapse -->
+                    <div class="collapse" id="productCollapseShipping" data-parent="#productCollapseParent">
+                      <div class="pt-5 font-size-sm text-gray-500">
+  
+                        <!-- Table -->
+                        <div class="table-responsive">
+                          <table class="table table-bordered table-sm table-hover">
+                            <thead>
+                              <tr>
+                                <th>Shipping Options</th>
+                                <th>Delivery Time</th>
+                                <th>Price</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Shipping : India</td>
+                                <td>Delivery in 5 - 7 working days</td>
+                                <td>FREE (for orders > &#8377;500)</td>
+                              </tr>
+                              <tr>
+                                <td>Shipping : India</td>
+                                <td>Delivery in 5 - 7 working days</td>
+                                <td>&#8377;50/-</td>
+                              </tr>
+                              <tr>
+                                <td>Shipping: International</td>
+                                <td>Best Possible</td>
+                                <td>&#8377;1800/-</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+  
+                        <!-- Caption -->
+                        <p class="mb-0 text-gray-500">
+                          May your life be blessed. <a class="text-body text-decoration-underline" href="#!"></a>
+                        </p>
+  
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

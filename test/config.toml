@@ -1,0 +1,15 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "swaabhi.com"
+
+[taxonomies]
+  color = "Colors"
+  occasion ="Occasions"
+
+[outputs]
+    products = ["HTML"] # A player
+    section = ["HTML"] # All players
+    home = ["HTML"] # All players
+    taxonomy = ["HTML"] # All items from a sport+
+    

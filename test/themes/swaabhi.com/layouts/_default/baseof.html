@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Structure of the page from baseof.html-->
+<!--Structure of the page from head.html -->
+{{- partial "head.html" . -}}
+<!--Structure of the page from head.html end -->
+
+<body>
+<!--Structure of the page from header.html -->
+{{- partial "header.html" . -}}
+<!--Structure of the page from header.html end -->
+
+<!--Structure of the page from main content-->
+{{- block "main" . }}
+{{- end }}
+<!--Structure of the page from main content end-->
+
+<!--Structure of the page from footer.html -->    
+{{- partial "footer.html" . -}}
+<!--Structure of the page from footer.html -->           
+
+<!--Structure of the page from script.html -->    
+{{- partial "script.html" . -}}
+<!--Structure of the page from script.html end -->    
+</body>
+
+<!--Structure of the page from baseof.html end-->
+</html>

@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<main id="single" product-id="{{ .Params.product_name | safeHTML }}">
+<!--main product section start  -->
+{{- partial "product-main.html" . -}}
+
+<!--start similar products -->
+{{- partial "product-similar.html" . -}}
+<!--end -->
+
+<!--start similar products -->
+{{- partial "product-reviews.html" . -}}
+<!--end -->
+
+<!--more information about shipping etc -->
+{{- partial "product-footer.html" . -}}
+<!-- end-->
+
+</main>
+{{ end }}
