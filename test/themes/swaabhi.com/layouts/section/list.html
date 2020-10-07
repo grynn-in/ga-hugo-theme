@@ -3,44 +3,17 @@
 <section>
     <div class="container">
       <div class="row" data-toggle="lists" data-options='{"valueNames": ["name"]}'>
-  
-        <div class="col-12 col-md-4 col-lg-3" >
+       <div class="col-12 col-md-4 col-lg-3" >
           <!-- Filters -->
  
           <!-- Filters -->
           <form class="mb-10 mb-md-0">
-             <ul class="nav nav-vertical" id="filterNav">
-              {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies }}
-              {{ with $.Site.GetPage (printf "/%s" $taxonomy_term) }}
-              <li class="nav-item">
-                <!-- Toggle -->
-                <a class="nav-link dropdown-toggle font-size-lg text-reset border-bottom mb-6" data-toggle="collapse" href="#{{ $taxonomy_term }}Collapse" aria-expanded="true">              
-                 Section: {{ $taxonomy_term }} // {{ $taxonomy }} 
-                </a>
-  
-                <!-- Collapse -->
-                <div class="collapse" id="{{ $taxonomy_term }}Collapse" >
-                  <div class="form-group">
-                    <ul class="list-styled mb-0" id="productsNav">
-                        {{ range $key, $value := $taxonomy }}
-                      <li class="list-styled-item">
-                        <!-- a class="list-styled-link" onclick="queryProduct(this)" data-key="{{ $taxonomy_term | urlize}}" data-value="{{.Page.Title }}" -->
-                        <a class="list-styled-link" href="/{{$taxonomy_term|urlize}}/{{$key|urlize}}">
-                          {{.Page.Title }}<span class="badge badge-Light">({{ .Count }})</span>
-                        </a>
-                      </li>
-                      {{ end }}
-  
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              {{ end }}
-              {{ end }}
-            </ul>
+            {{- partial "breadcrumb.html" . -}}
           </form>
   
         </div>
+
+
         <div class="col-12 col-md-8 col-lg-9">
           <!-- Slider start -->
 

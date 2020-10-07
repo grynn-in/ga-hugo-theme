@@ -1,6 +1,6 @@
 {
   "sku" : "SFSM/2807501119",
-  "name" : "Agate silver unshape crystal brown necklace - swaabhi",
+  "name" : "xxAgate silver unshape crystal brown necklace - swaabhi",
   "description" : "<p>necklace : 38.5 gm, 27 inches</p> <p>Material : Brass and Copper</p> <p>Stones : grey beads</p> <p>Finish : Silver</p> <p>Fixing : hook</p>",
   "shortdescription" : "<p>Buy this attractive necklace set online.</p>",
   "weight" : "0.038",

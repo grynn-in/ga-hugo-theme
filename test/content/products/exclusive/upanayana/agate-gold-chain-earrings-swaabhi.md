@@ -1,6 +1,6 @@
 {
   "sku" : "SMXT/250824378",
-  "name" : "Agate Gold Chain Earrings - Swaabhi",
+  "name" : "ttAgate Gold Chain Earrings - Swaabhi",
   "description" : "<p>Measurements</p> <p>Weight: 38&nbsp;gms</p> <p>Height : 4&nbsp;inches</p> <p>Material : Brass and Copper</p> <p>Stone : Peach Quartz, Blue CZ Agate&nbsp;</p> <p>Finish : Gold</p> <p>Fixing : Push back</p> <p>&nbsp;</p>",
   "shortdescription" : "<p>Agate Gold Chain Earrings - Swaabhi gives an elegant look embedded with Peach Quartz, Blue CZ Agate and has a gold finish.</p>",
   "weight" : "0.038",

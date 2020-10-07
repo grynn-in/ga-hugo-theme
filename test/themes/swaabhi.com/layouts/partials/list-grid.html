@@ -219,11 +219,7 @@
           <!-- product-->
         </div>
 
-        <!-- Pagination start -->
-        {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-        {{ template "_internal/pagination.html" . }}
-        {{ range $paginator.Pages }}
-        {{ end }}
+
 
 
       </div>
