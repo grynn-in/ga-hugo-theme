@@ -2,18 +2,21 @@
 <div class="css-treeview box">
 	<ul>
 		<!-- li><label for="item-0">Home</label-->
-        {{ template "section-tree-nav" $home }}
+            <a href="{{ .Title }}"> {{ template "section-tree-nav" $home }} </a>
 	</ul>
 </div>
 
 {{ define "section-tree-nav" }}
-{{ range .Sections.Reverse}}
-<li><label for="item-0-0">{{ .Title }}</label>
+{{ range .Sections}}
+<li><a href="{{ .RelPermalink}}"><label for="item-0-0">{{ .Title }}</a></label>
 	<ul>
 		<ul>
 		{{ template "section-tree-nav" . }}
-		</ul>
+        </ul>
 	</ul>
 </li>
+
 {{ end }}
 {{ end }}
+
+

@@ -1,3 +1,3 @@
 ---
-title: Bridal
+title: Earrings
 ---

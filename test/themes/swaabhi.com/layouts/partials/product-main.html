@@ -13,11 +13,11 @@
                   <a class="text-gray-400" href="/products">Products</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a class="text-gray-400" href="/category/{{.Params.category | urlize}}">
+                    <a class="text-gray-400" href="/products/{{.Params.category | urlize}}">
                     {{ .Params.category }}</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a class="text-gray-400" href="/category/sub-category/{{.Params.sub_category | urlize}}">
+                    <a class="text-gray-400" href="/products/{{.Params.category | urlize}}/{{ .Params.sub_category | urlize}}">
                         {{ .Params.sub_category }}
                     </a>
     
@@ -74,9 +74,9 @@
                         <!-- Preheading -->
                         <!-- h3 class="mb-2">{{ .Params.category }}</h3><br-->
                         Classified as 
-                        <a href="/category/{{.Params.category | urlize}}" class="badge btn-swaabhi" background-color: #red
+                        <a href="/products/{{.Params.category | urlize}}" class="badge btn-swaabhi" background-color: #red
                             !important;>{{ .Params.category }}</a>
-                        <a href="/category/sub-category/{{.Params.sub_category | urlize}}" class="badge btn-swaabhi" background-color: #red
+                        <a href="/products/{{.Params.category | urlize}}/{{ .Params.sub_category | urlize}}" class="badge btn-swaabhi" background-color: #red
                             !important;>{{ .Params.sub_category }}</a>
                     </div>
                 </div>

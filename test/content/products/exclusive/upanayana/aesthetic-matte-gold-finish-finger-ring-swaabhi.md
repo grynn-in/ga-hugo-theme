@@ -1,6 +1,6 @@
 {
   "sku" : "SMT/20230878",
-  "name" : "zzAesthetic Matte Gold Finish Finger Ring - Swaabhi",
+  "name" : "Aesthetic Matte Gold Finish Finger Ring - Swaabhi",
   "description" : "<p>Measurements</p> <p>Weight : 9 gms</p> <p>Size : adjustable</p> <p>Material : Brass and Copper</p> <p>Stone : emrald, semi precious</p> <p>Finish : Matte Gold</p> <p>&nbsp;</p>",
   "shortdescription" : "<p>Aesthetic Matte Gold Finish Finger Ring - Swaabhi has an elegant design embedded with emrald, semi precious stone and with a matte golden polish.</p>",
   "weight" : "0.005",
