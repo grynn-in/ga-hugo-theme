@@ -37,7 +37,9 @@
                   <!-- Title -->
                   <div class="font-weight-bold">
                     <a class="text-body" href="{{.Permalink}}">
-                      {{.Params.name}}
+                      {{ if eq (.Params.name) "" }}
+                       {{ .title}}
+                      {{end }}
                     </a>
                   </div>
                   <!-- Price -->
